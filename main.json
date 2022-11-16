@@ -139,10 +139,8 @@
                 "use ds=AMI execute drop table hTest;"
             ],
             "check": "== \"VARSIZE5\""
-        },
-        {
-            "test":"test"
         }
+      
 
     ]
 }
