@@ -48,7 +48,7 @@
 		    "pre": [
 			    "drop table if exists hTest_nonull;",
                 "create public table hTest_nonull(name String, qty int) use PersistEngine=\"HISTORICAL\";",
-                "insert into hTest_nonull values(\"Rob\",123), (\"Rob\",1234), (\"Rob\",12345);"
+                "insert into hTest_nonull values(\"Rob\",123), (\"Rob\",1234), (\"Rob\",123444444444444444444445);"
             ],
             "test": "SELECT STORAGE FROM Diagnose table hTest_nonull WHERE NAME == \"qty\" AND TYPE ==\"PCOLUMN\";",
             "post": [
