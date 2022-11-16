@@ -155,6 +155,22 @@
                 "use ds=AMI execute drop table hTest;"
             ],
             "check": "== \"VARSIZE5\""
+        },
+        {
+            "name": "TESTTTTTTTTTTTTTTTTTTTTTTTT2",
+		    "desc": "strings that are recurring a lot pre-optimized",
+    		"type": "assertstringcompare",
+            "timeout": 5.0,
+		    "pre": [
+			    "drop table if exists hTest;",
+                "create public table hTest(name String, qty int) use PersistEngine=\"HISTORICAL\";",
+                "for (int i =0;i<100000;i++) insert into hTest values(\"test\"+i%10,123);"
+            ],
+            "test": "select STORAGE from diagnose table hTest where NAME==\"name\" and TYPE==\"PCOLUMN\";",
+            "post": [
+                "use ds=AMI execute drop table hTest;"
+            ],
+            "check": "== \"VARSIZE5\""
         }
       
 
